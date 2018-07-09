@@ -30,6 +30,7 @@ RUN conda install -y -c conda-forge google-cloud-storage
 RUN conda install -y -c anaconda numpy 
 RUN conda install -y -c conda-forge pandas 
 RUN conda install -c anaconda jupyter 
+RUN conda install -c conda-forge scikit-surprise
 
 ENTRYPOINT [ "/usr/bin/tini", "--" ]
 CMD [ "/bin/bash" ]
