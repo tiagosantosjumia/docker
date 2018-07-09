@@ -1,10 +1,5 @@
 FROM debian:latest
 
-#  $ docker build . -t continuumio/miniconda3:latest -t continuumio/miniconda3:4.5.4
-#  $ docker run --rm -it continuumio/miniconda3:latest /bin/bash
-#  $ docker push continuumio/miniconda3:latest
-#  $ docker push continuumio/miniconda3:4.5.4
-
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 ENV PATH /opt/conda/bin:$PATH
 
@@ -29,8 +24,7 @@ RUN conda install -y -c conda-forge google-cloud-bigquery
 RUN conda install -y -c conda-forge google-cloud-storage 
 RUN conda install -y -c anaconda numpy 
 RUN conda install -y -c conda-forge pandas 
-RUN conda install -c anaconda jupyter 
-RUN conda install -c conda-forge scikit-surprise
+RUN conda install -c anaconda jupyter
 
 ENTRYPOINT [ "/usr/bin/tini", "--" ]
 CMD [ "/bin/bash" ]
